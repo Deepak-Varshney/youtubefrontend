@@ -43,7 +43,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.post('/api/auth/signout');
+      const res = await axios.post('https://myyoutube-0non.onrender.com/api/auth/signout');
       dispatch(logout());
       alert(res.data.message);
       navigate('/');

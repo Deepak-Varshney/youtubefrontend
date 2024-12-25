@@ -23,7 +23,7 @@ const ProfileHeader = ({ profileData, currentUser, userId, handleSubscribe, hand
 
   const handleEditSubmit = async () => {
     try {
-      await axios.put(`/api/users/profile/update`, editData);
+      await axios.put(`https://myyoutube-0non.onrender.com/api/users/profile/update`, editData);
       fetchProfile();
       setIsEditing(false);
       toast.success('Profile updated successfully!');
@@ -49,7 +49,7 @@ const ProfileHeader = ({ profileData, currentUser, userId, handleSubscribe, hand
     data.append('upload_preset', 'youtube');
     data.append('cloud_name', 'dshog03l1');
     try {
-      const res = await axios.post('https://api.cloudinary.com/v1_1/dshog03l1/image/upload', data);
+      const res = await axios.post('https:/https://myyoutube-0non.onrender.com/api.cloudinary.com/v1_1/dshog03l1/image/upload', data);
       setEditData({ ...editData, profilePicture: res.data.url });
       toast.success('Profile picture uploaded successfully!');
     } catch (error) {

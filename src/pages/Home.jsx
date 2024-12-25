@@ -19,8 +19,8 @@ const Home = () => {
       setLoading(true); // Start loading
       try {
         const response = selectedCategory === "All"
-          ? await axios.get('/api/videos/all')
-          : await axios.get(`/api/videos/type/${selectedCategory}`);
+          ? await axios.get('https://myyoutube-0non.onrender.com/api/videos/all')
+          : await axios.get(`https://myyoutube-0non.onrender.com/api/videos/type/${selectedCategory}`);
         setVideos(response.data.videos);
       } catch (error) {
         console.error("Error fetching videos:", error);

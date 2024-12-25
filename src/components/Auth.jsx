@@ -41,7 +41,7 @@ const Auth = () => {
     data.append('cloud_name', 'dshog03l1');
     try {
       setLoading(true);
-      const res = await axios.post('https://api.cloudinary.com/v1_1/dshog03l1/image/upload', data, {
+      const res = await axios.post('https:/https://myyoutube-0non.onrender.com/api.cloudinary.com/v1_1/dshog03l1/image/upload', data, {
         onUploadProgress: (progressEvent) => {
           const progressPercentage = Math.round((progressEvent.loaded * 100) / progressEvent.total);
           setProgress(progressPercentage);
@@ -63,7 +63,7 @@ const Auth = () => {
     setLoading(true);
     setError('');
 
-    const url = isSignup ? '/api/auth/signup' : '/api/auth/signin';
+    const url = isSignup ? 'https://myyoutube-0non.onrender.com/api/auth/signup' : 'https://myyoutube-0non.onrender.com/api/auth/signin';
 
     try {
       const res = await axios.post(url, formData);

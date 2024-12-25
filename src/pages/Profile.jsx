@@ -30,7 +30,7 @@ const Profile = () => {
 
   const fetchProfile = async () => {
     try {
-      const response = await axios.get(`/api/users/profile/${userId}`);
+      const response = await axios.get(`https://myyoutube-0non.onrender.com/api/users/profile/${userId}`);
       const data = response.data;
       setProfileData({
         channelName: data.channelName,
@@ -51,7 +51,7 @@ const Profile = () => {
     fetchProfile();
     const fetchVideos = async () => {
       try {
-        const response = await axios.get(`/api/videos/channel/${userId}`);
+        const response = await axios.get(`https://myyoutube-0non.onrender.com/api/videos/channel/${userId}`);
         setVideos(response.data.videos);
       } catch (error) {
         console.error('Error fetching videos:', error);
@@ -63,7 +63,7 @@ const Profile = () => {
 
   const handleSubscribe = async () => {
     try {
-      const response = await axios.put(`/api/users/subscribe/${userId}`);
+      const response = await axios.put(`https://myyoutube-0non.onrender.com/api/users/subscribe/${userId}`);
       if (response.status === 200) {
         dispatch(subscription(userId));
         setProfileData(prev => ({
@@ -79,7 +79,7 @@ const Profile = () => {
 
   const handleUnsubscribe = async () => {
     try {
-      const response = await axios.put(`/api/users/unsubscribe/${userId}`);
+      const response = await axios.put(`https://myyoutube-0non.onrender.com/api/users/unsubscribe/${userId}`);
       if (response.status === 200) {
         dispatch(subscription(userId));
         setProfileData(prev => ({
@@ -96,7 +96,7 @@ const Profile = () => {
   const handleDeleteVideo = async (videoId) => {
     confirm('Are you sure you want to delete this video?');
     try {
-      await axios.delete(`/api/videos/delete/${videoId}`);
+      await axios.delete(`https://myyoutube-0non.onrender.com/api/videos/delete/${videoId}`);
       setVideos(videos.filter(video => video._id !== videoId));
       toast.success('Video deleted successfully!');
     } catch (error) {
@@ -111,7 +111,7 @@ const Profile = () => {
 
   const handleUpdateVideo = async (videoId, updatedData) => {
     try {
-      await axios.put(`/api/videos/edit/${videoId}`, updatedData);
+      await axios.put(`https://myyoutube-0non.onrender.com/api/videos/edit/${videoId}`, updatedData);
       setVideos(videos.map(video => (video._id === videoId ? { ...video, ...updatedData } : video)));
       toast.success('Video updated successfully!');
       setIsEditModalOpen(false);

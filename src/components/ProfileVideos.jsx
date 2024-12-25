@@ -11,7 +11,7 @@ const ProfileVideos = ({ videos }) => {
 
   const handleDelete = async (videoId) => {
     try {
-      await axios.delete(`/api/videos/delete/${videoId}`, {
+      await axios.delete(`https://myyoutube-0non.onrender.com/api/videos/delete/${videoId}`, {
         headers: { Authorization: `Bearer ${currentUser?.token}` },
       });
       toast.success('Video deleted successfully!');

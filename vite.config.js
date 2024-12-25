@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy:{
-      '/api': {
+      'https://myyoutube-0non.onrender.com/api': {
         target: 'http://localhost:3000',
       }
     }

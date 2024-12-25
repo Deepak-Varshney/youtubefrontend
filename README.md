@@ -127,20 +127,20 @@ server/
 ## 📡 API Routes
 
 ### Authentication
-- `POST /api/auth/signup`: Register a new user.
-- `POST /api/auth/signin`: Login a user.
+- `POST https://myyoutube-0non.onrender.com/api/auth/signup`: Register a new user.
+- `POST https://myyoutube-0non.onrender.com/api/auth/signin`: Login a user.
 
 ### Videos
-- `GET /api/videos`: Fetch all videos.
-- `GET /api/videos/:id`: Fetch a single video by ID.
-- `POST /api/videos`: Upload a new video (authenticated).
-- `PUT /api/videos/:id`: Edit a video (authenticated).
-- `DELETE /api/videos/:id`: Delete a video (authenticated).
+- `GET https://myyoutube-0non.onrender.com/api/videos`: Fetch all videos.
+- `GET https://myyoutube-0non.onrender.com/api/videos/:id`: Fetch a single video by ID.
+- `POST https://myyoutube-0non.onrender.com/api/videos`: Upload a new video (authenticated).
+- `PUT https://myyoutube-0non.onrender.com/api/videos/:id`: Edit a video (authenticated).
+- `DELETE https://myyoutube-0non.onrender.com/api/videos/:id`: Delete a video (authenticated).
 
 ### Comments
-- `GET /api/comments/:videoId`: Fetch comments for a video.
-- `POST /api/comments`: Add a comment (authenticated).
-- `DELETE /api/comments/:id`: Delete a comment (authenticated).
+- `GET https://myyoutube-0non.onrender.com/api/comments/:videoId`: Fetch comments for a video.
+- `POST https://myyoutube-0non.onrender.com/api/comments`: Add a comment (authenticated).
+- `DELETE https://myyoutube-0non.onrender.com/api/comments/:id`: Delete a comment (authenticated).
 
 ---
 

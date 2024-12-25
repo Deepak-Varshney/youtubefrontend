@@ -41,9 +41,9 @@ function PlayingVideo() {
 
   const fetchVideoDetails = async () => {
     try {
-      const res = await axios.get(`/api/videos/find/${id}`);
+      const res = await axios.get(`https://myyoutube-0non.onrender.com/api/videos/find/${id}`);
       setVideo(res.data.video);
-      const commentsRes = await axios.get(`/api/comments/video/${id}`);
+      const commentsRes = await axios.get(`https://myyoutube-0non.onrender.com/api/comments/video/${id}`);
       setComments(commentsRes.data.comments);
       setLiked(res.data.video.likes.includes(currentUser?._id));
       setDisliked(res.data.video.dislikes.includes(currentUser?._id));
@@ -57,7 +57,7 @@ function PlayingVideo() {
 
   const fetchRelatedVideos = async (tags) => {
     try {
-      const res = await axios.get(`/api/videos/tags?tags=${tags.join(',')}`);
+      const res = await axios.get(`https://myyoutube-0non.onrender.com/api/videos/tags?tags=${tags.join(',')}`);
       setRelatedVideos(res.data.videos);
     } catch (error) {
       console.error("Error fetching related videos:", error);
@@ -67,7 +67,7 @@ function PlayingVideo() {
 
   const increaseViewCount = async () => {
     try {
-      await axios.put(`/api/videos/view/${id}`, {}, { headers: { Authorization: `Bearer ${currentUser?.token}` } });
+      await axios.put(`https://myyoutube-0non.onrender.com/api/videos/view/${id}`, {}, { headers: { Authorization: `Bearer ${currentUser?.token}` } });
     } catch (error) {
       console.error("Error increasing view count:", error);
     }
@@ -84,7 +84,7 @@ function PlayingVideo() {
     }
     if (liked) return; // Already liked, no need to send request
     try {
-      await axios.put(`/api/videos/like/${id}`, {}, { headers: { Authorization: `Bearer ${currentUser?.token}` } });
+      await axios.put(`https://myyoutube-0non.onrender.com/api/videos/like/${id}`, {}, { headers: { Authorization: `Bearer ${currentUser?.token}` } });
       setLiked(true);
       setDisliked(false); // Ensure dislike is reset if liked
       toast.success("Video liked!");
@@ -106,7 +106,7 @@ function PlayingVideo() {
     }
     if (disliked) return; // Already disliked, no need to send request
     try {
-      await axios.put(`/api/videos/dislike/${id}`, {}, { headers: { Authorization: `Bearer ${currentUser?.token}` } });
+      await axios.put(`https://myyoutube-0non.onrender.com/api/videos/dislike/${id}`, {}, { headers: { Authorization: `Bearer ${currentUser?.token}` } });
       setDisliked(true);
       setLiked(false); // Ensure like is reset if disliked
       toast.success("Video disliked!");
@@ -127,7 +127,7 @@ function PlayingVideo() {
       return;
     }
     try {
-      await axios.put(`/api/users/subscribe/${video?.user?._id}`, {}, { headers: { Authorization: `Bearer ${currentUser?.token}` } });
+      await axios.put(`https://myyoutube-0non.onrender.com/api/users/subscribe/${video?.user?._id}`, {}, { headers: { Authorization: `Bearer ${currentUser?.token}` } });
       dispatch(subscription(video?.user?._id));
       setSubscribed(true);
       setVideo(prevVideo => ({
@@ -146,7 +146,7 @@ function PlayingVideo() {
 
   const handleUnsubscribe = async () => {
     try {
-      await axios.put(`/api/users/unsubscribe/${video?.user._id}`, {}, { headers: { Authorization: `Bearer ${currentUser?.token}` } });
+      await axios.put(`https://myyoutube-0non.onrender.com/api/users/unsubscribe/${video?.user._id}`, {}, { headers: { Authorization: `Bearer ${currentUser?.token}` } });
       dispatch(subscription(video?.user?._id));
       setSubscribed(false);
       setVideo(prevVideo => ({

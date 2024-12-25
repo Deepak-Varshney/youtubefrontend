@@ -21,7 +21,7 @@ const CommentSection = ({ comments, videoId, currentUser, fetchVideoDetails }) =
   const handleCommentSubmit = async () => {
     if (newComment.trim()) {
       try {
-        const res = await axios.post(`/api/comments/add/${videoId}/`, { message: newComment });
+        const res = await axios.post(`https://myyoutube-0non.onrender.com/api/comments/add/${videoId}/`, { message: newComment });
         fetchVideoDetails();
         setNewComment("");
         setIsCommenting(false);
@@ -46,7 +46,7 @@ const CommentSection = ({ comments, videoId, currentUser, fetchVideoDetails }) =
   const handleUpdateComment = async (commentId) => {
     if (editingCommentText.trim()) {
       try {
-        await axios.put(`/api/comments/edit/${commentId}`, { message: editingCommentText });
+        await axios.put(`https://myyoutube-0non.onrender.com/api/comments/edit/${commentId}`, { message: editingCommentText });
         fetchVideoDetails();
         setEditingCommentId(null);
         setEditingCommentText("");
@@ -60,7 +60,7 @@ const CommentSection = ({ comments, videoId, currentUser, fetchVideoDetails }) =
 
   const handleDeleteComment = async (commentId) => {
     try {
-      await axios.delete(`/api/comments/delete/${commentId}`);
+      await axios.delete(`https://myyoutube-0non.onrender.com/api/comments/delete/${commentId}`);
       fetchVideoDetails();
       toast.success("Comment deleted successfully!");
     } catch (error) {

@@ -17,7 +17,7 @@ const SearchResults = () => {
     const fetchSearchResults = async () => {
       try {
         setLoading(true); // Set loading to true when the request starts
-        const response = await axios.get(`/api/videos/search?q=${searchQuery}`);
+        const response = await axios.get(`https://myyoutube-0non.onrender.com/api/videos/search?q=${searchQuery}`);
         setVideos(response.data.videos);
       } catch (error) {
         console.error('Error fetching search results:', error);

@@ -36,7 +36,7 @@ const UploadVideoModal = ({ isOpen, toggleModal }) => {
       setLoading(true);
       setUploadSource(type);
       const response = await axios.post(
-        `https://api.cloudinary.com/v1_1/dshog03l1/${type}/upload`, data,
+        `https:/https://myyoutube-0non.onrender.com/api.cloudinary.com/v1_1/dshog03l1/${type}/upload`, data,
         {
           onUploadProgress: (progressEvent) => {
             const progressPercentage = Math.round(
@@ -70,7 +70,7 @@ const UploadVideoModal = ({ isOpen, toggleModal }) => {
     e.preventDefault();
     const data = { ...formData, tags: formData.tags.split(',').map(tag => tag.trim()) }; // Convert tags to array
     try {
-      const response = await axios.post('/api/videos/upload', data);
+      const response = await axios.post('https://myyoutube-0non.onrender.com/api/videos/upload', data);
       if (response.status === 201) {
         toast.success('Video uploaded successfully!');
         toggleModal(); // Close modal after successful submission
