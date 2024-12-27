@@ -66,7 +66,9 @@ const Auth = () => {
     const url = isSignup ? 'https://myyoutube-0non.onrender.com/api/auth/signup' : 'https://myyoutube-0non.onrender.com/api/auth/signin';
 
     try {
-      const res = await axios.post(url, formData);
+      const res = await axios.post(url, formData, {
+        withCredentials: true, // Allow sending and receiving cookies
+      });
       dispatch(loginSuccess(res.data.others));
       setProgress(0);
       toast.success(isSignup ? 'Signup successful!' : 'Login successful!');
